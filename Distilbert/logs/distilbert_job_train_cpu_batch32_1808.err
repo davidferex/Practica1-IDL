@@ -1,0 +1,11 @@
+No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+2026-03-08 19:42:16,465 - launch.py - accelerate.commands.launch - WARNING - The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_cpu_threads_per_process` was set to `2` to improve out-of-box performance when training on CPUs
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+ERROR:2026-03-08 19:43:54 2174:2174 DeviceProperties.cpp:47] gpuGetDeviceCount failed with code 35
+
+real	2m18.805s
+user	3m5.993s
+sys	0m5.618s

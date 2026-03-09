@@ -1,0 +1,42 @@
+No-GPU mode
+Inside container on  slurm-static-1-36  at  Sun Mar 8 19:46:17 UTC 2026
+Epoch 1/1 | Loss: 0.7019
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                               aten::mm        59.49%       51.990s        59.49%       51.991s      42.756ms          1216  
+                                            aten::addmm        30.20%       26.390s        30.34%       26.515s      43.611ms           608  
+                                            aten::copy_         1.65%        1.444s         1.65%        1.444s     109.517us         13184  
+                                             aten::sqrt         1.30%        1.135s         1.30%        1.135s     682.046us          1664  
+                                         aten::addcdiv_         0.89%     773.594ms         0.89%     773.594ms     464.900us          1664  
+                                              aten::bmm         0.69%     601.479ms         0.69%     601.995ms       1.045ms           576  
+                                              aten::div         0.61%     532.503ms         0.63%     554.366ms     333.153us          1664  
+                                            aten::lerp_         0.49%     429.100ms         0.49%     429.100ms     257.872us          1664  
+                                         aten::addcmul_         0.44%     387.585ms         0.44%     387.585ms     232.924us          1664  
+                                              aten::mul         0.39%     344.408ms         0.40%     352.706ms     423.925us           832  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 87.393s
+
+Trace guardada en: results/distilbert/trace_16_cpu_batch16.json
+
+Entrenamiento completado en 119.11s
+Throughput: 2.15 samples/s
+CPU RSS: start=593.92 MiB  end=5.97 GiB  peak~=5.78 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           aten::linear         0.05%      45.129ms        61.30%       53.575s      44.059ms          1216  
+    autograd::engine::evaluate_function: AddmmBackward0         0.04%      31.798ms        59.88%       52.334s      86.075ms           608  
+                                         AddmmBackward0         0.06%      50.189ms        59.61%       52.092s      85.678ms           608  
+                                               aten::mm        59.49%       51.990s        59.49%       51.991s      42.756ms          1216  
+                                            aten::addmm        30.20%       26.390s        30.34%       26.515s      43.611ms           608  
+                               Optimizer.step#Adam.step         0.23%     198.647ms         4.61%        4.025s     251.577ms            16  
+                                            aten::copy_         1.65%        1.444s         1.65%        1.444s     109.517us         13184  
+                     aten::scaled_dot_product_attention         0.01%       8.739ms         1.44%        1.255s      13.071ms            96  
+               aten::_scaled_dot_product_attention_math         0.01%       9.093ms         1.43%        1.246s      12.980ms            96  
+                                               aten::to         0.03%      29.044ms         1.39%        1.217s     101.505us         11992  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 87.393s
+
+Resumen del profiling guardado en: results/distilbert/summary_time_cpu_batch16.csv
+Evolución memoria CPU guardada en: results/distilbert/memory_cpu_cpu_batch16.csv
