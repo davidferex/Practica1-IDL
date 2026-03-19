@@ -100,6 +100,7 @@ criterion = nn.CrossEntropyLoss()
 profile_kwargs = ProfileKwargs(
     activities=["cpu"],
     record_shapes=True,
+    schedule_option={"wait": 0, "warmup": 0, "active": 2, "repeat": 1},
     on_trace_ready=trace_handler
 )
 
@@ -133,7 +134,7 @@ with accelerator.profile() as prof:
             batch_attention_mask = batch_attention_mask.to(device)
             batch_labels = batch_labels.to(device)
 
-            optimizer.zero_grad() if accelerator.sync_gradients else None
+            optimizer.zero_grad()
             logits = model(input_ids=batch_input_ids, attention_mask=batch_attention_mask).logits
             loss = criterion(logits, batch_labels)
             loss.backward()
@@ -163,7 +164,7 @@ with accelerator.profile() as prof:
 
 t1 = time.time()
 cpu_rss_end = get_rss_bytes()
-throughput = total_samples / (t1 - t0)
+throughput = total_samples*gradient_accumulation_steps / (t1 - t0)
 
 print(f"\nEntrenamiento completado en {t1-t0:.2f}s")
 print(f"Throughput: {throughput:.2f} samples/s")

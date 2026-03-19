@@ -1,0 +1,66 @@
+NUM_PROCESSES=1
+CUDA_VISIBLE_DEVICES=0
+Tue Mar 17 18:45:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   72C    P8             17W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Inside container on  slurm-static-1-44  at  Tue Mar 17 18:45:14 UTC 2026
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                  volta_sgemm_128x64_nn         0.00%       0.000us         0.00%       0.000us       0.000us      64.081ms        24.47%      64.081ms     890.014us            72  
+                                  volta_sgemm_128x64_nt         0.00%       0.000us         0.00%       0.000us       0.000us      62.379ms        23.82%      62.379ms     866.375us            72  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us      41.553ms        15.87%      41.553ms       1.731ms            24  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us      25.021ms         9.56%      25.021ms     521.261us            48  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.557ms         3.27%       8.557ms       1.070ms             8  
+fmha_cutlassB_f32_aligned_64x64_k64_dropout_sm75(PyT...         0.00%       0.000us         0.00%       0.000us       0.000us       6.908ms         2.64%       6.908ms     575.672us            12  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.540ms         2.50%       6.540ms     817.445us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.539ms         2.50%       6.539ms     817.401us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       4.655ms         1.78%       4.655ms     581.853us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       4.605ms         1.76%       4.605ms     575.586us             8  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 2.039s
+Self CUDA time total: 261.827ms
+
+Trace guardada en: results/distilbert/trace_2_gpu_batch16_fp32.json
+Epoch 1/1 | Loss: 0.7039
+
+Entrenamiento completado en 4.79s
+Throughput: 53.45 samples/s
+CPU RSS: start=706.00 MiB end=1.08 GiB peak~=1.08 GiB
+GPU Mem: start=256.50 MiB end=1.03 GiB peak~=1.03 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                  volta_sgemm_128x64_nn         0.00%       0.000us         0.00%       0.000us       0.000us      64.081ms        24.47%      64.081ms     890.014us            72  
+                                  volta_sgemm_128x64_nt         0.00%       0.000us         0.00%       0.000us       0.000us      62.379ms        23.82%      62.379ms     866.375us            72  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us      41.553ms        15.87%      41.553ms       1.731ms            24  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us      25.021ms         9.56%      25.021ms     521.261us            48  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.557ms         3.27%       8.557ms       1.070ms             8  
+fmha_cutlassB_f32_aligned_64x64_k64_dropout_sm75(PyT...         0.00%       0.000us         0.00%       0.000us       0.000us       6.908ms         2.64%       6.908ms     575.672us            12  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.540ms         2.50%       6.540ms     817.445us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.539ms         2.50%       6.539ms     817.401us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       4.655ms         1.78%       4.655ms     581.853us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       4.605ms         1.76%       4.605ms     575.586us             8  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 2.039s
+Self CUDA time total: 261.827ms
+
+Resumen del profiling guardado en: results/distilbert/summary_time_gpu_batch16_fp32.csv
+Evolución memoria guardada en: results/distilbert/memory_gpu_batch16_fp32.csv

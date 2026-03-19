@@ -98,6 +98,7 @@ def trace_handler(p):
 profile_kwargs = ProfileKwargs(
     activities=["cpu"],
     record_shapes=True,
+    schedule_option={"wait": 0, "warmup": 0, "active": 2, "repeat": 1},
     on_trace_ready=trace_handler
 )
 accelerator = Accelerator(

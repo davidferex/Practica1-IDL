@@ -1,0 +1,16 @@
+No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+2026-03-18 17:25:48,792 - launch.py - accelerate.commands.launch - WARNING - The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_cpu_threads_per_process` was set to `2` to improve out-of-box performance when training on CPUs
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+/opt/conda/lib/python3.12/site-packages/torch/profiler/profiler.py:488: UserWarning: Profiler won't be using warmup, this can skew profiler results
+  warn("Profiler won't be using warmup, this can skew profiler results")
+/opt/conda/lib/python3.12/site-packages/torch/autograd/graph.py:823: UserWarning: aten::layer_norm: an autograd kernel was not registered to the Autograd key(s) but we are trying to backprop through it. This may lead to silently incorrect behavior. This behavior is deprecated and will be removed in a future version of PyTorch. If your operator is differentiable, please ensure you have registered an autograd kernel to the correct Autograd key (e.g. DispatchKey::Autograd, DispatchKey::CompositeImplicitAutograd). If your operator is not differentiable, or to squash this warning and use the previous behavior, please register torch::CppFunction::makeFallthrough() to DispatchKey::Autograd. (Triggered internally at /pytorch/torch/csrc/autograd/autograd_not_implemented_fallback.cpp:62.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+ERROR:2026-03-18 17:26:14 2118:2118 DeviceProperties.cpp:47] gpuGetDeviceCount failed with code 35
+
+real	2m2.983s
+user	2m59.510s
+sys	0m3.609s

@@ -143,6 +143,7 @@ criterion = nn.CrossEntropyLoss()
 profile_kwargs = ProfileKwargs(
     activities=["cuda"],
     record_shapes=True,
+    schedule_option={"wait": 0, "warmup": 0, "active": 2, "repeat": 1},
     on_trace_ready=trace_handler
 )
 

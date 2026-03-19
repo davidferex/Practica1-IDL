@@ -1,0 +1,148 @@
+NUM_PROCESSES=4
+CUDA_VISIBLE_DEVICES=0,1,2,3
+Wed Mar 18 18:01:32 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   62C    P8             10W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |
+| N/A   64C    P8             11W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   62C    P8             10W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   66C    P8             11W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Inside container on  slurm-static-1-53  at  Wed Mar 18 18:01:33 UTC 2026
+My guessed rank = 0
+My guessed rank = 2
+My guessed rank = 1
+My guessed rank = 3
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm*...         0.00%       0.000us         0.00%       0.000us       0.000us     163.309ms        56.70%     163.309ms      18.145ms             9  
+turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      11.743ms         4.08%      11.743ms     163.104us            72  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.528ms         2.96%       8.528ms       1.066ms             8  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       7.818ms         2.71%       7.818ms      36.535us           214  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       7.268ms         2.52%       7.268ms      35.283us           206  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.535ms         2.27%       6.535ms     816.853us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.514ms         2.26%       6.514ms     814.265us             8  
+         turing_fp16_s1688gemm_fp16_128x128_ldg8_f2f_nn         0.00%       0.000us         0.00%       0.000us       0.000us       6.465ms         2.24%       6.465ms     269.384us            24  
+    turing_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us       6.102ms         2.12%       6.102ms     254.260us            24  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.088ms         2.11%       6.088ms      29.410us           207  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.812s
+Self CUDA time total: 288.047ms
+
+Trace guardada en: results/distilbert/trace_2_mgpu_batch16_fp16_gradacc.json
+Epoch 1/1 | Loss: 0.7088
+
+Tiempo total: 4.38s
+Throughput LOCAL: 58.50 samples/s
+Throughput GLOBAL: 233.98 samples/s
+Resumen profiling guardado en: results/distilbert/summary_time_mgpu_batch16_fp16_gradacc.csv
+Memoria guardada en: results/distilbert/memory_mgpu_batch16_fp16_gradacc.csv
+
+[RANK 0/4]
+CPU RSS: start=1.05 GiB end=1.53 GiB peak~=1.53 GiB
+GPU Mem: start=512.50 MiB end=1.02 GiB peak~=1.02 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm*...         0.00%       0.000us         0.00%       0.000us       0.000us     163.309ms        56.70%     163.309ms      18.145ms             9  
+turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      11.743ms         4.08%      11.743ms     163.104us            72  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.528ms         2.96%       8.528ms       1.066ms             8  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       7.818ms         2.71%       7.818ms      36.535us           214  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       7.268ms         2.52%       7.268ms      35.283us           206  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.535ms         2.27%       6.535ms     816.853us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.514ms         2.26%       6.514ms     814.265us             8  
+         turing_fp16_s1688gemm_fp16_128x128_ldg8_f2f_nn         0.00%       0.000us         0.00%       0.000us       0.000us       6.465ms         2.24%       6.465ms     269.384us            24  
+    turing_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us       6.102ms         2.12%       6.102ms     254.260us            24  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.088ms         2.11%       6.088ms      29.410us           207  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.812s
+Self CUDA time total: 288.047ms
+
+
+[RANK 1/4]
+CPU RSS: start=1.08 GiB end=1.56 GiB peak~=1.56 GiB
+GPU Mem: start=512.50 MiB end=1.02 GiB peak~=1.02 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm*...         0.00%       0.000us         0.00%       0.000us       0.000us     165.284ms        55.56%     165.284ms      18.365ms             9  
+turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      13.664ms         4.59%      13.664ms     189.780us            72  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.554ms         2.88%       8.554ms       1.069ms             8  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       7.841ms         2.64%       7.841ms      38.063us           206  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       7.690ms         2.58%       7.690ms      35.933us           214  
+         turing_fp16_s1688gemm_fp16_128x128_ldg8_f2f_nn         0.00%       0.000us         0.00%       0.000us       0.000us       7.667ms         2.58%       7.667ms     319.475us            24  
+    turing_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us       7.049ms         2.37%       7.049ms     293.712us            24  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.534ms         2.20%       6.534ms     816.711us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.531ms         2.20%       6.531ms     816.355us             8  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.327ms         2.13%       6.327ms      30.567us           207  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.811s
+Self CUDA time total: 297.482ms
+
+
+[RANK 2/4]
+CPU RSS: start=1.07 GiB end=1.55 GiB peak~=1.55 GiB
+GPU Mem: start=512.50 MiB end=1.02 GiB peak~=1.02 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm*...         0.00%       0.000us         0.00%       0.000us       0.000us     165.724ms        55.46%     165.724ms      18.414ms             9  
+turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      13.672ms         4.58%      13.672ms     189.884us            72  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.560ms         2.86%       8.560ms       1.070ms             8  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       7.655ms         2.56%       7.655ms      37.162us           206  
+         turing_fp16_s1688gemm_fp16_128x128_ldg8_f2f_nn         0.00%       0.000us         0.00%       0.000us       0.000us       7.626ms         2.55%       7.626ms     317.761us            24  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       7.546ms         2.53%       7.546ms      35.263us           214  
+    turing_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us       7.053ms         2.36%       7.053ms     293.871us            24  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.535ms         2.19%       6.535ms     816.911us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.530ms         2.19%       6.530ms     816.254us             8  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.203ms         2.08%       6.203ms      29.967us           207  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.813s
+Self CUDA time total: 298.798ms
+
+
+[RANK 3/4]
+CPU RSS: start=1.06 GiB end=1.54 GiB peak~=1.54 GiB
+GPU Mem: start=512.50 MiB end=1.02 GiB peak~=1.02 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm*...         0.00%       0.000us         0.00%       0.000us       0.000us     165.064ms        56.81%     165.064ms      18.340ms             9  
+turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      11.934ms         4.11%      11.934ms     165.746us            72  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       8.530ms         2.94%       8.530ms       1.066ms             8  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       7.584ms         2.61%       7.584ms      36.817us           206  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       7.421ms         2.55%       7.421ms      34.677us           214  
+         turing_fp16_s1688gemm_fp16_128x128_ldg8_f2f_nn         0.00%       0.000us         0.00%       0.000us       0.000us       6.546ms         2.25%       6.546ms     272.765us            24  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.528ms         2.25%       6.528ms     815.958us             8  
+void at::native::(anonymous namespace)::multi_tensor...         0.00%       0.000us         0.00%       0.000us       0.000us       6.526ms         2.25%       6.526ms     815.718us             8  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.342ms         2.18%       6.342ms      30.640us           207  
+    turing_fp16_s1688gemm_fp16_128x128_ldg8_relu_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us       6.141ms         2.11%       6.141ms     255.862us            24  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.819s
+Self CUDA time total: 290.567ms
+
