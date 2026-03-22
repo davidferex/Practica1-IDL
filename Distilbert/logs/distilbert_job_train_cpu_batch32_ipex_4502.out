@@ -1,0 +1,42 @@
+No-GPU mode
+Inside container on  slurm-static-1-34  at  Sun Mar 22 16:14:52 UTC 2026
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                            torch_ipex::linear_backward        62.05%       13.291s        62.12%       13.308s     175.103ms            76  
+                                torch_ipex::ipex_linear        31.66%        6.781s        63.33%       13.566s      89.250ms           152  
+                                              aten::bmm         0.90%     192.071ms         0.90%     192.144ms       2.669ms            72  
+                                            aten::copy_         0.88%     187.631ms         0.88%     187.631ms     375.262us           500  
+                                              aten::mul         0.51%     109.854ms         0.53%     112.512ms       1.082ms           104  
+                            torch_ipex::adam_fused_step         0.50%     106.269ms         0.50%     106.269ms     510.910us           208  
+                                            aten::fill_         0.48%     103.013ms         0.48%     103.013ms     572.292us           180  
+                                          ProfilerStep*         0.35%      74.185ms       100.00%       21.422s       10.711s             2  
+                                       aten::bernoulli_         0.34%      72.479ms         0.34%      72.715ms       2.597ms            28  
+                                    aten::gelu_backward         0.29%      62.319ms         0.29%      62.319ms       5.193ms            12  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 21.422s
+
+Trace guardada en: results/distilbert/trace_2_cpu_batch32.json
+Epoch 1/1 | Loss: 0.7059
+
+Entrenamiento completado en 86.57s
+Throughput: 2.96 samples/s
+CPU RSS: start=1.21 GiB  end=3.95 GiB  peak~=3.95 GiB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.35%      74.185ms       100.00%       21.422s       10.711s             2  
+                                torch_ipex::ipex_linear        31.66%        6.781s        63.33%       13.566s      89.250ms           152  
+autograd::engine::evaluate_function: torch::autograd...         0.02%       5.084ms        62.26%       13.337s     175.487ms            76  
+torch::autograd::CppNode<torch_ipex::cpu::IPEXLinear...         0.00%     874.517us        62.14%       13.311s     175.142ms            76  
+                                 IPEXLinearOp::backward         0.01%       2.144ms        62.13%       13.310s     175.131ms            76  
+                            torch_ipex::linear_backward        62.05%       13.291s        62.12%       13.308s     175.103ms            76  
+                                  IPEXLinearOp::forward         0.00%     772.022us        31.66%        6.781s      89.229ms            76  
+                                 IPEXLinearOp::_forward         0.00%     204.015us        31.65%        6.781s      89.219ms            76  
+                     aten::scaled_dot_product_attention         0.04%       7.643ms         2.08%     445.324ms      37.110ms            12  
+               aten::_scaled_dot_product_attention_math         0.01%       1.775ms         2.04%     437.680ms      36.473ms            12  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 21.422s
+
+Resumen del profiling guardado en: results/distilbert/summary_time_cpu_batch32.csv
+Evolución memoria CPU guardada en: results/distilbert/memory_cpu_cpu_batch32.csv
