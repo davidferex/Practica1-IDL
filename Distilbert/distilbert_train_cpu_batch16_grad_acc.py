@@ -135,7 +135,7 @@ with accelerator.profile() as prof:
             optimizer.zero_grad()
             logits = model(input_ids=batch_input_ids, attention_mask=batch_attention_mask).logits
             loss = criterion(logits, batch_labels)
-            loss.backward()
+            accelerator.backward(loss)
 
             if accelerator.sync_gradients:
                 optimizer.step()

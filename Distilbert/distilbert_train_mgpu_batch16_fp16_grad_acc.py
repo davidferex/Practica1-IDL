@@ -109,7 +109,14 @@ labels = torch.randint(0, num_labels, (num_examples,))
 
 dataset = TensorDataset(input_ids, attention_mask, labels)
 
-dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+dataloader = DataLoader(
+    dataset,
+    batch_size=batch_size,
+    shuffle=True,
+    num_workers=4,
+    pin_memory=True,
+    persistent_workers=True
+)
 
 # -------------------------------
 # Optimizer

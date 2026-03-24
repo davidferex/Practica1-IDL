@@ -113,8 +113,14 @@ labels = torch.randint(0, num_labels, (num_examples,))
 
 dataset = TensorDataset(input_ids, attention_mask, labels)
 
-dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-
+dataloader = DataLoader(
+    dataset,
+    batch_size=batch_size,
+    shuffle=True,
+    num_workers=4,
+    pin_memory=True,
+    persistent_workers=True
+)
 # -------------------------------
 # Optimizer
 # -------------------------------
@@ -221,7 +227,7 @@ total_samples_global = accelerator.reduce(
     reduction="sum"
 ).item()
 
-# 🔥 batch efectivo
+# batch efectivo
 local_throughput = total_samples_local * gradient_accumulation_steps / (t1 - t0)
 global_throughput = total_samples_global * gradient_accumulation_steps / (t1 - t0)
 
