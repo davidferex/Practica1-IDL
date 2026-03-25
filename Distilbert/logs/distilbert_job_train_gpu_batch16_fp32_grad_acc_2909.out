@@ -42,7 +42,7 @@ Trace guardada en: results/distilbert/trace_2_gpu_batch16_fp32_gradacc.json
 Epoch 1/1 | Loss: 0.7033
 
 Entrenamiento completado en 5.93s
-Throughput: 172.69 samples/s
+Throughput: 43.17 samples/s
 CPU RSS: start=705.09 MiB end=1.08 GiB peak~=1.08 GiB
 GPU Mem: start=256.50 MiB end=788.75 MiB peak~=788.75 MiB
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  

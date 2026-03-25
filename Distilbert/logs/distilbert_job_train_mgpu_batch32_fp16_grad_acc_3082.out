@@ -58,8 +58,8 @@ Trace guardada en: results/distilbert/trace_2_mgpu_batch32_fp16_gradacc.json
 Epoch 1/1 | Loss: 0.6890
 
 Tiempo total: 4.20s
-Throughput LOCAL: 60.99 samples/s
-Throughput GLOBAL: 243.95 samples/s
+Throughput LOCAL: 15.25 samples/s
+Throughput GLOBAL: 60.99 samples/s
 Resumen profiling guardado en: results/distilbert/summary_time_mgpu_batch32_fp16_gradacc.csv
 Memoria guardada en: results/distilbert/memory_mgpu_batch32_fp16_gradacc.csv
 

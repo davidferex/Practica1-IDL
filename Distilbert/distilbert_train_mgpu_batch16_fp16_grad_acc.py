@@ -222,8 +222,8 @@ total_samples_global = accelerator.reduce(
     reduction="sum"
 ).item()
 
-local_throughput = total_samples_local * gradient_accumulation_steps / (t1 - t0)
-global_throughput = total_samples_global * gradient_accumulation_steps / (t1 - t0)
+local_throughput = total_samples_local / (t1 - t0)
+global_throughput = total_samples_global / (t1 - t0)
 
 if accelerator.is_main_process:
     print(f"\nTiempo total: {t1-t0:.2f}s")

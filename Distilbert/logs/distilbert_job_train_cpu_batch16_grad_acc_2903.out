@@ -20,7 +20,7 @@ Trace guardada en: results/distilbert/trace_2_cpu_batch16_gradacc.json
 Epoch 1/1 | Loss: 0.7052
 
 Entrenamiento completado en 98.82s
-Throughput: 10.36 samples/s
+Throughput: 2.59 samples/s
 CPU RSS: start=595.59 MiB  end=2.43 GiB  peak~=2.46 GiB
 -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
                                                    Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  

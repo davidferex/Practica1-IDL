@@ -164,7 +164,7 @@ with accelerator.profile() as prof:
 
 t1 = time.time()
 cpu_rss_end = get_rss_bytes()
-throughput = total_samples*gradient_accumulation_steps / (t1 - t0)
+throughput = total_samples / (t1 - t0)
 
 print(f"\nEntrenamiento completado en {t1-t0:.2f}s")
 print(f"Throughput: {throughput:.2f} samples/s")

@@ -250,8 +250,7 @@ cpu_rss_end = get_rss_bytes()
 
 gpu_mem_end = torch.cuda.memory_allocated(device)
 
-# "El throughput se calcula sobre el batch físico. El batch efectivo es 4 veces mayor debido al gradient accumulation."
-throughput = total_samples*gradient_accumulation_steps / (t1 - t0)
+throughput = total_samples / (t1 - t0)
 
 print(f"\nEntrenamiento completado en {t1-t0:.2f}s")
 

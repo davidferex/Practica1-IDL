@@ -263,7 +263,7 @@ cpu_rss_end = get_rss_bytes()
 
 gpu_mem_end = torch.cuda.memory_allocated(device)
 
-throughput = total_samples*gradient_accumulation_steps / (t1 - t0)
+throughput = total_samples / (t1 - t0)
 
 print(f"\nEntrenamiento completado en {t1-t0:.2f}s")
 
