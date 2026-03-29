@@ -1,0 +1,59 @@
+Launching inference: whisper-tiny-inf_cpu_batch32.py  NUM_PROCESSES=1  DEVICE_MAP=auto
+Inside container on  slurm-static-1-33  at  Sat Mar 28 13:40:26 UTC 2026
+Config: inf_cpu_batch32  batch_size=32  device=cpu
+Warming up CPU...
+=== Inference: inf_cpu_batch32  batch_size=32 ===
+Batch 0: size=32  CPU=2205.0 MB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+      aten::_scaled_dot_product_flash_attention_for_cpu        35.81%        6.032s        35.87%        6.043s      27.976ms           216  
+                                            aten::addmm        30.28%        5.101s        34.05%        5.736s       7.392ms           776  
+                                            aten::copy_        10.05%        1.693s        10.05%        1.693s       1.234ms          1372  
+                                               aten::mm         8.92%        1.502s         8.92%        1.503s      10.291ms           146  
+                               aten::mkldnn_convolution         3.87%     652.259ms         3.87%     652.505ms     163.126ms             4  
+                                             aten::gelu         3.03%     510.727ms         3.03%     510.727ms       4.403ms           116  
+                                              aten::add         2.31%     389.868ms         2.31%     389.868ms     829.506us           470  
+                                          ProfilerStep*         2.07%     348.887ms       100.00%       16.847s       16.847s             1  
+                                aten::native_layer_norm         1.70%     286.647ms         4.32%     728.307ms       2.046ms           356  
+                                             aten::sort         0.33%      55.398ms         0.38%      63.181ms     842.418us            75  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 16.847s
+
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_1_inf_cpu_batch32.json
+Batch 1: size=32  CPU=2486.9 MB
+Batch 2: size=32  CPU=2486.9 MB
+Batch 3: size=32  CPU=2486.9 MB
+Batch 4: size=32  CPU=2486.9 MB
+Batch 5: size=32  CPU=2486.9 MB
+Batch 6: size=32  CPU=2486.9 MB
+Batch 7: size=32  CPU=2486.9 MB
+
+Done. config=inf_cpu_batch32  time=140.925s  samples=256
+Throughput: 1.82 samples/s
+CPU RSS: start=822.18 MiB end=2.43 GiB peak~=2.43 GiB
+Resumen del profiling guardado en: /home/javierpolog/whisper_tiny/results/summary_time_inf_cpu_batch32.csv
+Evolucion memoria guardada en: /home/javierpolog/whisper_tiny/results/memory_inf_cpu_batch32.csv
+
+--- CPU Profiling summary ---
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+      aten::_scaled_dot_product_flash_attention_for_cpu        35.81%        6.032s        35.87%        6.043s      27.976ms           216  
+                                            aten::addmm        30.28%        5.101s        34.05%        5.736s       7.392ms           776  
+                                            aten::copy_        10.05%        1.693s        10.05%        1.693s       1.234ms          1372  
+                                               aten::mm         8.92%        1.502s         8.92%        1.503s      10.291ms           146  
+                               aten::mkldnn_convolution         3.87%     652.259ms         3.87%     652.505ms     163.126ms             4  
+                                             aten::gelu         3.03%     510.727ms         3.03%     510.727ms       4.403ms           116  
+                                              aten::add         2.31%     389.868ms         2.31%     389.868ms     829.506us           470  
+                                          ProfilerStep*         2.07%     348.887ms       100.00%       16.847s       16.847s             1  
+                                aten::native_layer_norm         1.70%     286.647ms         4.32%     728.307ms       2.046ms           356  
+                                             aten::sort         0.33%      55.398ms         0.38%      63.181ms     842.418us            75  
+                                            aten::where         0.29%      48.310ms         0.58%      97.010ms       1.155ms            84  
+                                           aten::argmax         0.24%      40.344ms         0.24%      40.404ms       1.554ms            26  
+                                              aten::cat         0.24%      40.063ms         0.27%      46.124ms     166.512us           277  
+                                           aten::linear         0.10%      16.012ms        43.20%        7.278s       7.894ms           922  
+                                        aten::transpose         0.08%      12.654ms         0.10%      16.806ms       5.815us          2890  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 16.847s
+

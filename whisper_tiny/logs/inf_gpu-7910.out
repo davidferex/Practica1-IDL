@@ -1,0 +1,331 @@
+Launching inference: whisper-tiny-inf_gpu.py  NUM_PROCESSES=1  DEVICE_MAP=auto
+Sat Mar 28 13:34:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   70C    P8             12W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Inside container on  slurm-static-1-42  at  Sat Mar 28 13:34:35 UTC 2026
+Warming up GPU...
+
+=== Inference: inf_gpu ===
+Batch 0: 1 samples, output[0]=' I'
+Batch 1: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us     376.411ms       189.59%     376.411ms     188.205ms             2  
+                     aten::_efficient_attention_forward         1.03%       4.876ms         2.43%      11.501ms      46.376us     101.039ms        50.89%     101.039ms     407.416us           248  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     101.039ms        50.89%     101.039ms     407.416us           248  
+                                            aten::addmm         6.48%      30.731ms         9.72%      46.061ms      50.728us      45.343ms        22.84%      45.343ms      49.938us           908  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us      44.125ms        22.22%      44.125ms     344.724us           128  
+                                               aten::mm         1.02%       4.814ms         1.42%       6.713ms      37.924us      17.055ms         8.59%      17.055ms      96.354us           177  
+void gemv2T_kernel_val<int, int, float, float, float...         0.00%       0.000us         0.00%       0.000us       0.000us       8.580ms         4.32%       8.580ms     317.774us            27  
+void at_cuda_detail::cub::DeviceRadixSortOnesweepKer...         0.00%       0.000us         0.00%       0.000us       0.000us       6.854ms         3.45%       6.854ms      15.865us           432  
+                                          aten::_unique         0.81%       3.848ms         2.62%      12.427ms     230.124us       6.511ms         3.28%       6.686ms     123.813us            54  
+                                            aten::copy_         0.82%       3.891ms         7.80%      36.972ms      77.836us       5.244ms         2.64%       5.246ms      11.044us           475  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 473.897ms
+Self CUDA time total: 198.540ms
+
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_2_inf_gpu.json
+Batch 2: 1 samples, output[0]=' I'
+Batch 3: 1 samples, output[0]=''
+Batch 4: 1 samples, output[0]=" I'm not."
+Batch 5: 1 samples, output[0]='誓'
+Batch 6: 1 samples, output[0]='真心真心真心真心真心真心真心真心真心真心真心真心真'
+Batch 7: 1 samples, output[0]=" I'm not."
+Batch 8: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 9: 1 samples, output[0]=''
+Batch 10: 1 samples, output[0]=' I'
+Batch 11: 1 samples, output[0]=''
+Batch 12: 1 samples, output[0]=' I'
+Batch 13: 1 samples, output[0]=" I'm not."
+Batch 14: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 15: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 16: 1 samples, output[0]=''
+Batch 17: 1 samples, output[0]=''
+Batch 18: 1 samples, output[0]=''
+Batch 19: 1 samples, output[0]='哎呀'
+Batch 20: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 21: 1 samples, output[0]=' I'
+Batch 22: 1 samples, output[0]=''
+Batch 23: 1 samples, output[0]=' I'
+Batch 24: 1 samples, output[0]=''
+Batch 25: 1 samples, output[0]=" I'm not."
+Batch 26: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 27: 1 samples, output[0]=''
+Batch 28: 1 samples, output[0]=" I'm not."
+Batch 29: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 30: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 31: 1 samples, output[0]=' I'
+Batch 32: 1 samples, output[0]=''
+Batch 33: 1 samples, output[0]=''
+Batch 34: 1 samples, output[0]=' I'
+Batch 35: 1 samples, output[0]=" I'm not."
+Batch 36: 1 samples, output[0]='欸'
+Batch 37: 1 samples, output[0]='哎呀'
+Batch 38: 1 samples, output[0]=''
+Batch 39: 1 samples, output[0]=' I'
+Batch 40: 1 samples, output[0]=''
+Batch 41: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+Batch 42: 1 samples, output[0]=''
+Batch 43: 1 samples, output[0]=''
+Batch 44: 1 samples, output[0]=''
+Batch 45: 1 samples, output[0]=''
+Batch 46: 1 samples, output[0]=' I'
+Batch 47: 1 samples, output[0]='哎呀'
+Batch 48: 1 samples, output[0]=' I'
+Batch 49: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 50: 1 samples, output[0]=''
+Batch 51: 1 samples, output[0]='真'
+Batch 52: 1 samples, output[0]=''
+Batch 53: 1 samples, output[0]=''
+Batch 54: 1 samples, output[0]='真實真實真實真實真實真實真實真實真實真實真實真實真'
+Batch 55: 1 samples, output[0]=' I'
+Batch 56: 1 samples, output[0]=" I'm not."
+Batch 57: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 58: 1 samples, output[0]=''
+Batch 59: 1 samples, output[0]='誓'
+Batch 60: 1 samples, output[0]=''
+Batch 61: 1 samples, output[0]=" I'm not."
+Batch 62: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 63: 1 samples, output[0]=''
+Batch 64: 1 samples, output[0]=''
+Batch 65: 1 samples, output[0]=' I'
+Batch 66: 1 samples, output[0]='欸'
+Batch 67: 1 samples, output[0]=' I'
+Batch 68: 1 samples, output[0]=''
+Batch 69: 1 samples, output[0]=" I'm not."
+Batch 70: 1 samples, output[0]=' I'
+Batch 71: 1 samples, output[0]=''
+Batch 72: 1 samples, output[0]=''
+Batch 73: 1 samples, output[0]=''
+Batch 74: 1 samples, output[0]=" I'm not."
+Batch 75: 1 samples, output[0]=" I'm not."
+Batch 76: 1 samples, output[0]=''
+Batch 77: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 78: 1 samples, output[0]='哎呀'
+Batch 79: 1 samples, output[0]=''
+Batch 80: 1 samples, output[0]='真'
+Batch 81: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 82: 1 samples, output[0]=" I'm not."
+Batch 83: 1 samples, output[0]=''
+Batch 84: 1 samples, output[0]=' I'
+Batch 85: 1 samples, output[0]=''
+Batch 86: 1 samples, output[0]=' I'
+Batch 87: 1 samples, output[0]=''
+Batch 88: 1 samples, output[0]=' I'
+Batch 89: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 90: 1 samples, output[0]=' I'
+Batch 91: 1 samples, output[0]='哎呀'
+Batch 92: 1 samples, output[0]=' I'
+Batch 93: 1 samples, output[0]=" I'm not."
+Batch 94: 1 samples, output[0]=''
+Batch 95: 1 samples, output[0]=''
+Batch 96: 1 samples, output[0]=" I'm not."
+Batch 97: 1 samples, output[0]=" I'm not."
+Batch 98: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 99: 1 samples, output[0]=' I'
+Batch 100: 1 samples, output[0]=''
+Batch 101: 1 samples, output[0]=" I'm not"
+Batch 102: 1 samples, output[0]=' a'
+Batch 103: 1 samples, output[0]=' I'
+Batch 104: 1 samples, output[0]=" I'm not."
+Batch 105: 1 samples, output[0]='哎'
+Batch 106: 1 samples, output[0]=''
+Batch 107: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 108: 1 samples, output[0]=' I'
+Batch 109: 1 samples, output[0]=''
+Batch 110: 1 samples, output[0]='誓'
+Batch 111: 1 samples, output[0]=''
+Batch 112: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 113: 1 samples, output[0]='哎呀'
+Batch 114: 1 samples, output[0]=''
+Batch 115: 1 samples, output[0]=''
+Batch 116: 1 samples, output[0]=" I'm not."
+Batch 117: 1 samples, output[0]=''
+Batch 118: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 119: 1 samples, output[0]=' I'
+Batch 120: 1 samples, output[0]=''
+Batch 121: 1 samples, output[0]=''
+Batch 122: 1 samples, output[0]=''
+Batch 123: 1 samples, output[0]='真係真係真係真係真係真係真係真係真係真係真係真係真'
+Batch 124: 1 samples, output[0]=''
+Batch 125: 1 samples, output[0]=" I'm not."
+Batch 126: 1 samples, output[0]=''
+Batch 127: 1 samples, output[0]=''
+Batch 128: 1 samples, output[0]=''
+Batch 129: 1 samples, output[0]=''
+Batch 130: 1 samples, output[0]='哎呀'
+Batch 131: 1 samples, output[0]='哎呀'
+Batch 132: 1 samples, output[0]=''
+Batch 133: 1 samples, output[0]=''
+Batch 134: 1 samples, output[0]=" I'm not."
+Batch 135: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+Batch 136: 1 samples, output[0]=' I'
+Batch 137: 1 samples, output[0]=''
+Batch 138: 1 samples, output[0]=''
+Batch 139: 1 samples, output[0]=' I'
+Batch 140: 1 samples, output[0]=" I'm not"
+Batch 141: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+Batch 142: 1 samples, output[0]=" I'm not."
+Batch 143: 1 samples, output[0]='誓'
+Batch 144: 1 samples, output[0]='誓'
+Batch 145: 1 samples, output[0]=" I'm not."
+Batch 146: 1 samples, output[0]=''
+Batch 147: 1 samples, output[0]=''
+Batch 148: 1 samples, output[0]=''
+Batch 149: 1 samples, output[0]=' I'
+Batch 150: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 151: 1 samples, output[0]=''
+Batch 152: 1 samples, output[0]=''
+Batch 153: 1 samples, output[0]=''
+Batch 154: 1 samples, output[0]='哎呀'
+Batch 155: 1 samples, output[0]=''
+Batch 156: 1 samples, output[0]=''
+Batch 157: 1 samples, output[0]='哎呀'
+Batch 158: 1 samples, output[0]=" I'm not."
+Batch 159: 1 samples, output[0]=''
+Batch 160: 1 samples, output[0]='哎呀'
+Batch 161: 1 samples, output[0]=''
+Batch 162: 1 samples, output[0]=" I'm not."
+Batch 163: 1 samples, output[0]=''
+Batch 164: 1 samples, output[0]=''
+Batch 165: 1 samples, output[0]=" I'm not."
+Batch 166: 1 samples, output[0]=" I'm not."
+Batch 167: 1 samples, output[0]='哎呀'
+Batch 168: 1 samples, output[0]=''
+Batch 169: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 170: 1 samples, output[0]=''
+Batch 171: 1 samples, output[0]='誓'
+Batch 172: 1 samples, output[0]=" I'm not."
+Batch 173: 1 samples, output[0]=''
+Batch 174: 1 samples, output[0]='哎呀'
+Batch 175: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+Batch 176: 1 samples, output[0]=' I'
+Batch 177: 1 samples, output[0]=' I'
+Batch 178: 1 samples, output[0]=''
+Batch 179: 1 samples, output[0]=''
+Batch 180: 1 samples, output[0]=" I'm not."
+Batch 181: 1 samples, output[0]=''
+Batch 182: 1 samples, output[0]='欸'
+Batch 183: 1 samples, output[0]=' I'
+Batch 184: 1 samples, output[0]=''
+Batch 185: 1 samples, output[0]=' I'
+Batch 186: 1 samples, output[0]=''
+Batch 187: 1 samples, output[0]=''
+Batch 188: 1 samples, output[0]=' I'
+Batch 189: 1 samples, output[0]=''
+Batch 190: 1 samples, output[0]=''
+Batch 191: 1 samples, output[0]=' I'
+Batch 192: 1 samples, output[0]=''
+Batch 193: 1 samples, output[0]=''
+Batch 194: 1 samples, output[0]=''
+Batch 195: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 196: 1 samples, output[0]=' I'
+Batch 197: 1 samples, output[0]=''
+Batch 198: 1 samples, output[0]=" I'm not."
+Batch 199: 1 samples, output[0]=''
+Batch 200: 1 samples, output[0]=''
+Batch 201: 1 samples, output[0]=' I'
+Batch 202: 1 samples, output[0]=' I'
+Batch 203: 1 samples, output[0]=''
+Batch 204: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 205: 1 samples, output[0]=' I'
+Batch 206: 1 samples, output[0]=''
+Batch 207: 1 samples, output[0]='哎呀'
+Batch 208: 1 samples, output[0]=' I'
+Batch 209: 1 samples, output[0]=' I'
+Batch 210: 1 samples, output[0]=" I'm not."
+Batch 211: 1 samples, output[0]=''
+Batch 212: 1 samples, output[0]='哎呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀呀'
+Batch 213: 1 samples, output[0]=''
+Batch 214: 1 samples, output[0]=''
+Batch 215: 1 samples, output[0]=''
+Batch 216: 1 samples, output[0]=''
+Batch 217: 1 samples, output[0]=''
+Batch 218: 1 samples, output[0]=' I'
+Batch 219: 1 samples, output[0]=" I'm not."
+Batch 220: 1 samples, output[0]=''
+Batch 221: 1 samples, output[0]=''
+Batch 222: 1 samples, output[0]=''
+Batch 223: 1 samples, output[0]='哎呀'
+Batch 224: 1 samples, output[0]=''
+Batch 225: 1 samples, output[0]=" I'm not."
+Batch 226: 1 samples, output[0]=" I'm not."
+Batch 227: 1 samples, output[0]=" I'm not."
+Batch 228: 1 samples, output[0]=''
+Batch 229: 1 samples, output[0]=' I'
+Batch 230: 1 samples, output[0]=" I'm not."
+Batch 231: 1 samples, output[0]=''
+Batch 232: 1 samples, output[0]='真'
+Batch 233: 1 samples, output[0]=" I'm not."
+Batch 234: 1 samples, output[0]=' I'
+Batch 235: 1 samples, output[0]=''
+Batch 236: 1 samples, output[0]=''
+Batch 237: 1 samples, output[0]=''
+Batch 238: 1 samples, output[0]=''
+Batch 239: 1 samples, output[0]=''
+Batch 240: 1 samples, output[0]=" I'm not."
+Batch 241: 1 samples, output[0]=''
+Batch 242: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 243: 1 samples, output[0]=''
+Batch 244: 1 samples, output[0]=" I'm not."
+Batch 245: 1 samples, output[0]=''
+Batch 246: 1 samples, output[0]='哎呀'
+Batch 247: 1 samples, output[0]=''
+Batch 248: 1 samples, output[0]='真真真真真真真真真真真真真真真真真真真真真真真真真'
+Batch 249: 1 samples, output[0]=" I'm not."
+Batch 250: 1 samples, output[0]=''
+Batch 251: 1 samples, output[0]=' I'
+Batch 252: 1 samples, output[0]=''
+Batch 253: 1 samples, output[0]=' I'
+Batch 254: 1 samples, output[0]=" I'm not."
+Batch 255: 1 samples, output[0]=''
+
+Done. config=inf_gpu  time=39.072s  samples=256
+Throughput: 6.55 samples/s
+Device: cuda
+CPU RSS: start=1.46 GiB end=1.72 GiB peak~=1.72 GiB
+GPU Mem: start=154.31 MiB end=155.23 MiB peak~=182.74 MiB
+Resumen del profiling guardado en: /home/javierpolog/whisper_tiny/results/summary_time_inf_gpu.csv
+Evolucion memoria guardada en: /home/javierpolog/whisper_tiny/results/memory_inf_gpu.csv
+
+--- CUDA Profiling summary ---
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us     376.411ms       189.59%     376.411ms     188.205ms             2  
+                                          ProfilerStep*        30.36%     143.888ms       100.00%     473.882ms     236.941ms       0.000us         0.00%     198.550ms      99.275ms             2  
+                     aten::scaled_dot_product_attention         0.63%       2.976ms         4.56%      21.620ms      87.178us       0.000us         0.00%     101.039ms     407.416us           248  
+          aten::_scaled_dot_product_efficient_attention         0.68%       3.236ms         3.93%      18.644ms      75.179us       0.000us         0.00%     101.039ms     407.416us           248  
+                     aten::_efficient_attention_forward         1.03%       4.876ms         2.43%      11.501ms      46.376us     101.039ms        50.89%     101.039ms     407.416us           248  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     101.039ms        50.89%     101.039ms     407.416us           248  
+                                           aten::linear         2.10%       9.948ms        16.66%      78.946ms      72.761us       0.000us         0.00%      62.398ms      57.510us          1085  
+                                            aten::addmm         6.48%      30.731ms         9.72%      46.061ms      50.728us      45.343ms        22.84%      45.343ms      49.938us           908  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us      44.125ms        22.22%      44.125ms     344.724us           128  
+                                           aten::matmul         0.36%       1.707ms         1.97%       9.338ms      52.758us       0.000us         0.00%      17.055ms      96.354us           177  
+                                               aten::mm         1.02%       4.814ms         1.42%       6.713ms      37.924us      17.055ms         8.59%      17.055ms      96.354us           177  
+                                             aten::isin         0.74%       3.521ms         6.74%      31.950ms     384.943us       0.000us         0.00%      12.977ms     156.347us            83  
+void gemv2T_kernel_val<int, int, float, float, float...         0.00%       0.000us         0.00%       0.000us       0.000us       8.580ms         4.32%       8.580ms     317.774us            27  
+void at_cuda_detail::cub::DeviceRadixSortOnesweepKer...         0.00%       0.000us         0.00%       0.000us       0.000us       6.854ms         3.45%       6.854ms      15.865us           432  
+                                          aten::_unique         0.81%       3.848ms         2.62%      12.427ms     230.124us       6.511ms         3.28%       6.686ms     123.813us            54  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 473.897ms
+Self CUDA time total: 198.540ms
+

@@ -1,0 +1,307 @@
+Launching inference: whisper-tiny-inf_cpu.py  NUM_PROCESSES=1  DEVICE_MAP=auto
+Inside container on  slurm-static-1-33  at  Sat Mar 28 13:34:04 UTC 2026
+Config: inf_cpu  batch_size=1  device=cpu
+Warming up CPU...
+=== Inference: inf_cpu  batch_size=1 ===
+Batch 0: size=1  CPU=1180.2 MB
+Batch 1: size=1  CPU=1344.2 MB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                            aten::addmm        26.02%     391.682ms        29.68%     446.667ms     491.924us           908  
+      aten::_scaled_dot_product_flash_attention_for_cpu        23.76%     357.654ms        24.29%     365.539ms       1.474ms           248  
+                                               aten::mm        12.94%     194.790ms        12.95%     194.851ms       1.101ms           177  
+                                          ProfilerStep*         8.72%     131.255ms       100.00%        1.505s     752.572ms             2  
+                                            aten::copy_         6.65%     100.071ms         6.65%     100.071ms      68.354us          1464  
+                                             aten::gelu         4.15%      62.449ms         4.15%      62.449ms     446.063us           140  
+                                             aten::sort         4.11%      61.856ms         4.72%      71.080ms     877.530us            81  
+                               aten::mkldnn_convolution         2.58%      38.908ms         2.60%      39.140ms       4.892ms             8  
+                                              aten::add         1.45%      21.837ms         1.45%      21.837ms      46.363us           471  
+                                aten::native_layer_norm         1.15%      17.290ms         2.68%      40.266ms      97.496us           413  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.505s
+
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_2_inf_cpu.json
+Batch 2: size=1  CPU=1411.1 MB
+Batch 3: size=1  CPU=1411.1 MB
+Batch 4: size=1  CPU=1411.2 MB
+Batch 5: size=1  CPU=1411.2 MB
+Batch 6: size=1  CPU=1411.2 MB
+Batch 7: size=1  CPU=1411.2 MB
+Batch 8: size=1  CPU=1411.2 MB
+Batch 9: size=1  CPU=1411.2 MB
+Batch 10: size=1  CPU=1411.2 MB
+Batch 11: size=1  CPU=1411.2 MB
+Batch 12: size=1  CPU=1411.2 MB
+Batch 13: size=1  CPU=1411.2 MB
+Batch 14: size=1  CPU=1411.2 MB
+Batch 15: size=1  CPU=1411.2 MB
+Batch 16: size=1  CPU=1411.2 MB
+Batch 17: size=1  CPU=1411.2 MB
+Batch 18: size=1  CPU=1411.2 MB
+Batch 19: size=1  CPU=1411.2 MB
+Batch 20: size=1  CPU=1411.2 MB
+Batch 21: size=1  CPU=1411.2 MB
+Batch 22: size=1  CPU=1411.2 MB
+Batch 23: size=1  CPU=1411.2 MB
+Batch 24: size=1  CPU=1411.2 MB
+Batch 25: size=1  CPU=1411.2 MB
+Batch 26: size=1  CPU=1411.2 MB
+Batch 27: size=1  CPU=1411.2 MB
+Batch 28: size=1  CPU=1411.2 MB
+Batch 29: size=1  CPU=1411.2 MB
+Batch 30: size=1  CPU=1411.2 MB
+Batch 31: size=1  CPU=1411.2 MB
+Batch 32: size=1  CPU=1411.2 MB
+Batch 33: size=1  CPU=1411.2 MB
+Batch 34: size=1  CPU=1411.2 MB
+Batch 35: size=1  CPU=1411.2 MB
+Batch 36: size=1  CPU=1411.2 MB
+Batch 37: size=1  CPU=1411.2 MB
+Batch 38: size=1  CPU=1411.2 MB
+Batch 39: size=1  CPU=1411.2 MB
+Batch 40: size=1  CPU=1411.2 MB
+Batch 41: size=1  CPU=1411.2 MB
+Batch 42: size=1  CPU=1411.2 MB
+Batch 43: size=1  CPU=1411.2 MB
+Batch 44: size=1  CPU=1411.2 MB
+Batch 45: size=1  CPU=1411.2 MB
+Batch 46: size=1  CPU=1411.2 MB
+Batch 47: size=1  CPU=1411.2 MB
+Batch 48: size=1  CPU=1411.2 MB
+Batch 49: size=1  CPU=1411.2 MB
+Batch 50: size=1  CPU=1411.2 MB
+Batch 51: size=1  CPU=1411.2 MB
+Batch 52: size=1  CPU=1411.2 MB
+Batch 53: size=1  CPU=1411.2 MB
+Batch 54: size=1  CPU=1411.2 MB
+Batch 55: size=1  CPU=1411.2 MB
+Batch 56: size=1  CPU=1411.2 MB
+Batch 57: size=1  CPU=1411.2 MB
+Batch 58: size=1  CPU=1411.2 MB
+Batch 59: size=1  CPU=1411.2 MB
+Batch 60: size=1  CPU=1411.2 MB
+Batch 61: size=1  CPU=1411.2 MB
+Batch 62: size=1  CPU=1411.2 MB
+Batch 63: size=1  CPU=1411.2 MB
+Batch 64: size=1  CPU=1411.2 MB
+Batch 65: size=1  CPU=1411.2 MB
+Batch 66: size=1  CPU=1411.2 MB
+Batch 67: size=1  CPU=1411.2 MB
+Batch 68: size=1  CPU=1411.2 MB
+Batch 69: size=1  CPU=1411.2 MB
+Batch 70: size=1  CPU=1411.2 MB
+Batch 71: size=1  CPU=1411.2 MB
+Batch 72: size=1  CPU=1411.2 MB
+Batch 73: size=1  CPU=1411.2 MB
+Batch 74: size=1  CPU=1411.2 MB
+Batch 75: size=1  CPU=1411.2 MB
+Batch 76: size=1  CPU=1411.2 MB
+Batch 77: size=1  CPU=1411.2 MB
+Batch 78: size=1  CPU=1411.2 MB
+Batch 79: size=1  CPU=1411.2 MB
+Batch 80: size=1  CPU=1411.2 MB
+Batch 81: size=1  CPU=1411.2 MB
+Batch 82: size=1  CPU=1411.2 MB
+Batch 83: size=1  CPU=1411.2 MB
+Batch 84: size=1  CPU=1411.2 MB
+Batch 85: size=1  CPU=1411.2 MB
+Batch 86: size=1  CPU=1411.2 MB
+Batch 87: size=1  CPU=1411.2 MB
+Batch 88: size=1  CPU=1411.2 MB
+Batch 89: size=1  CPU=1411.2 MB
+Batch 90: size=1  CPU=1411.2 MB
+Batch 91: size=1  CPU=1411.2 MB
+Batch 92: size=1  CPU=1411.2 MB
+Batch 93: size=1  CPU=1411.2 MB
+Batch 94: size=1  CPU=1411.2 MB
+Batch 95: size=1  CPU=1411.2 MB
+Batch 96: size=1  CPU=1411.2 MB
+Batch 97: size=1  CPU=1411.2 MB
+Batch 98: size=1  CPU=1411.2 MB
+Batch 99: size=1  CPU=1411.2 MB
+Batch 100: size=1  CPU=1411.2 MB
+Batch 101: size=1  CPU=1411.2 MB
+Batch 102: size=1  CPU=1411.2 MB
+Batch 103: size=1  CPU=1411.2 MB
+Batch 104: size=1  CPU=1411.2 MB
+Batch 105: size=1  CPU=1411.2 MB
+Batch 106: size=1  CPU=1411.2 MB
+Batch 107: size=1  CPU=1411.2 MB
+Batch 108: size=1  CPU=1411.2 MB
+Batch 109: size=1  CPU=1411.2 MB
+Batch 110: size=1  CPU=1411.2 MB
+Batch 111: size=1  CPU=1411.2 MB
+Batch 112: size=1  CPU=1411.2 MB
+Batch 113: size=1  CPU=1411.2 MB
+Batch 114: size=1  CPU=1411.2 MB
+Batch 115: size=1  CPU=1411.2 MB
+Batch 116: size=1  CPU=1411.2 MB
+Batch 117: size=1  CPU=1411.2 MB
+Batch 118: size=1  CPU=1411.2 MB
+Batch 119: size=1  CPU=1411.2 MB
+Batch 120: size=1  CPU=1411.2 MB
+Batch 121: size=1  CPU=1411.2 MB
+Batch 122: size=1  CPU=1411.2 MB
+Batch 123: size=1  CPU=1411.2 MB
+Batch 124: size=1  CPU=1411.2 MB
+Batch 125: size=1  CPU=1411.2 MB
+Batch 126: size=1  CPU=1411.2 MB
+Batch 127: size=1  CPU=1411.2 MB
+Batch 128: size=1  CPU=1411.2 MB
+Batch 129: size=1  CPU=1411.2 MB
+Batch 130: size=1  CPU=1411.2 MB
+Batch 131: size=1  CPU=1411.2 MB
+Batch 132: size=1  CPU=1411.2 MB
+Batch 133: size=1  CPU=1411.2 MB
+Batch 134: size=1  CPU=1411.2 MB
+Batch 135: size=1  CPU=1411.2 MB
+Batch 136: size=1  CPU=1411.2 MB
+Batch 137: size=1  CPU=1411.2 MB
+Batch 138: size=1  CPU=1411.2 MB
+Batch 139: size=1  CPU=1411.2 MB
+Batch 140: size=1  CPU=1411.2 MB
+Batch 141: size=1  CPU=1411.2 MB
+Batch 142: size=1  CPU=1411.2 MB
+Batch 143: size=1  CPU=1411.2 MB
+Batch 144: size=1  CPU=1411.2 MB
+Batch 145: size=1  CPU=1411.2 MB
+Batch 146: size=1  CPU=1411.2 MB
+Batch 147: size=1  CPU=1411.2 MB
+Batch 148: size=1  CPU=1411.2 MB
+Batch 149: size=1  CPU=1411.2 MB
+Batch 150: size=1  CPU=1411.2 MB
+Batch 151: size=1  CPU=1411.2 MB
+Batch 152: size=1  CPU=1411.2 MB
+Batch 153: size=1  CPU=1411.2 MB
+Batch 154: size=1  CPU=1411.2 MB
+Batch 155: size=1  CPU=1411.2 MB
+Batch 156: size=1  CPU=1411.2 MB
+Batch 157: size=1  CPU=1411.2 MB
+Batch 158: size=1  CPU=1411.2 MB
+Batch 159: size=1  CPU=1411.2 MB
+Batch 160: size=1  CPU=1411.2 MB
+Batch 161: size=1  CPU=1411.2 MB
+Batch 162: size=1  CPU=1411.2 MB
+Batch 163: size=1  CPU=1411.2 MB
+Batch 164: size=1  CPU=1411.2 MB
+Batch 165: size=1  CPU=1411.2 MB
+Batch 166: size=1  CPU=1411.2 MB
+Batch 167: size=1  CPU=1411.2 MB
+Batch 168: size=1  CPU=1411.2 MB
+Batch 169: size=1  CPU=1411.2 MB
+Batch 170: size=1  CPU=1411.2 MB
+Batch 171: size=1  CPU=1411.2 MB
+Batch 172: size=1  CPU=1411.2 MB
+Batch 173: size=1  CPU=1411.2 MB
+Batch 174: size=1  CPU=1411.2 MB
+Batch 175: size=1  CPU=1411.2 MB
+Batch 176: size=1  CPU=1411.2 MB
+Batch 177: size=1  CPU=1411.2 MB
+Batch 178: size=1  CPU=1411.2 MB
+Batch 179: size=1  CPU=1411.2 MB
+Batch 180: size=1  CPU=1411.2 MB
+Batch 181: size=1  CPU=1411.2 MB
+Batch 182: size=1  CPU=1411.2 MB
+Batch 183: size=1  CPU=1411.2 MB
+Batch 184: size=1  CPU=1411.2 MB
+Batch 185: size=1  CPU=1411.2 MB
+Batch 186: size=1  CPU=1411.2 MB
+Batch 187: size=1  CPU=1411.2 MB
+Batch 188: size=1  CPU=1411.2 MB
+Batch 189: size=1  CPU=1411.2 MB
+Batch 190: size=1  CPU=1411.2 MB
+Batch 191: size=1  CPU=1411.2 MB
+Batch 192: size=1  CPU=1411.2 MB
+Batch 193: size=1  CPU=1411.2 MB
+Batch 194: size=1  CPU=1411.2 MB
+Batch 195: size=1  CPU=1411.2 MB
+Batch 196: size=1  CPU=1411.2 MB
+Batch 197: size=1  CPU=1411.2 MB
+Batch 198: size=1  CPU=1411.2 MB
+Batch 199: size=1  CPU=1411.2 MB
+Batch 200: size=1  CPU=1411.2 MB
+Batch 201: size=1  CPU=1411.2 MB
+Batch 202: size=1  CPU=1411.2 MB
+Batch 203: size=1  CPU=1411.2 MB
+Batch 204: size=1  CPU=1411.2 MB
+Batch 205: size=1  CPU=1411.2 MB
+Batch 206: size=1  CPU=1411.2 MB
+Batch 207: size=1  CPU=1411.2 MB
+Batch 208: size=1  CPU=1411.2 MB
+Batch 209: size=1  CPU=1411.2 MB
+Batch 210: size=1  CPU=1411.2 MB
+Batch 211: size=1  CPU=1411.2 MB
+Batch 212: size=1  CPU=1411.2 MB
+Batch 213: size=1  CPU=1411.2 MB
+Batch 214: size=1  CPU=1411.2 MB
+Batch 215: size=1  CPU=1411.2 MB
+Batch 216: size=1  CPU=1411.2 MB
+Batch 217: size=1  CPU=1411.2 MB
+Batch 218: size=1  CPU=1411.2 MB
+Batch 219: size=1  CPU=1411.2 MB
+Batch 220: size=1  CPU=1411.2 MB
+Batch 221: size=1  CPU=1411.2 MB
+Batch 222: size=1  CPU=1411.2 MB
+Batch 223: size=1  CPU=1411.2 MB
+Batch 224: size=1  CPU=1411.2 MB
+Batch 225: size=1  CPU=1411.2 MB
+Batch 226: size=1  CPU=1411.2 MB
+Batch 227: size=1  CPU=1411.2 MB
+Batch 228: size=1  CPU=1411.2 MB
+Batch 229: size=1  CPU=1411.2 MB
+Batch 230: size=1  CPU=1411.2 MB
+Batch 231: size=1  CPU=1411.2 MB
+Batch 232: size=1  CPU=1411.2 MB
+Batch 233: size=1  CPU=1411.2 MB
+Batch 234: size=1  CPU=1411.2 MB
+Batch 235: size=1  CPU=1411.2 MB
+Batch 236: size=1  CPU=1411.2 MB
+Batch 237: size=1  CPU=1411.2 MB
+Batch 238: size=1  CPU=1411.2 MB
+Batch 239: size=1  CPU=1411.2 MB
+Batch 240: size=1  CPU=1411.2 MB
+Batch 241: size=1  CPU=1411.2 MB
+Batch 242: size=1  CPU=1411.2 MB
+Batch 243: size=1  CPU=1411.2 MB
+Batch 244: size=1  CPU=1411.2 MB
+Batch 245: size=1  CPU=1411.2 MB
+Batch 246: size=1  CPU=1411.2 MB
+Batch 247: size=1  CPU=1411.2 MB
+Batch 248: size=1  CPU=1411.2 MB
+Batch 249: size=1  CPU=1411.2 MB
+Batch 250: size=1  CPU=1411.2 MB
+Batch 251: size=1  CPU=1411.2 MB
+Batch 252: size=1  CPU=1411.2 MB
+Batch 253: size=1  CPU=1411.2 MB
+Batch 254: size=1  CPU=1411.2 MB
+Batch 255: size=1  CPU=1411.2 MB
+
+Done. config=inf_cpu  time=178.513s  samples=256
+Throughput: 1.43 samples/s
+CPU RSS: start=819.20 MiB end=1.38 GiB peak~=1.38 GiB
+Resumen del profiling guardado en: /home/javierpolog/whisper_tiny/results/summary_time_inf_cpu.csv
+Evolucion memoria guardada en: /home/javierpolog/whisper_tiny/results/memory_inf_cpu.csv
+
+--- CPU Profiling summary ---
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                            aten::addmm        26.02%     391.682ms        29.68%     446.667ms     491.924us           908  
+      aten::_scaled_dot_product_flash_attention_for_cpu        23.76%     357.654ms        24.29%     365.539ms       1.474ms           248  
+                                               aten::mm        12.94%     194.790ms        12.95%     194.851ms       1.101ms           177  
+                                          ProfilerStep*         8.72%     131.255ms       100.00%        1.505s     752.572ms             2  
+                                            aten::copy_         6.65%     100.071ms         6.65%     100.071ms      68.354us          1464  
+                                             aten::gelu         4.15%      62.449ms         4.15%      62.449ms     446.063us           140  
+                                             aten::sort         4.11%      61.856ms         4.72%      71.080ms     877.530us            81  
+                               aten::mkldnn_convolution         2.58%      38.908ms         2.60%      39.140ms       4.892ms             8  
+                                              aten::add         1.45%      21.837ms         1.45%      21.837ms      46.363us           471  
+                                aten::native_layer_norm         1.15%      17.290ms         2.68%      40.266ms      97.496us           413  
+                                           aten::linear         0.75%      11.343ms        44.64%     671.842ms     619.209us          1085  
+                                             aten::isin         0.71%      10.643ms         6.70%     100.884ms       1.215ms            83  
+                                        aten::transpose         0.68%      10.228ms         0.90%      13.611ms       4.045us          3365  
+                                              aten::cat         0.58%       8.687ms         0.72%      10.858ms      41.444us           262  
+                                             aten::view         0.55%       8.260ms         0.55%       8.260ms       2.161us          3823  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.505s
+

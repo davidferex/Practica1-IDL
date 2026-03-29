@@ -1,0 +1,92 @@
+Launching inference: whisper-tiny-inf_gpu_batch16.py  NUM_PROCESSES=1  DEVICE_MAP=auto
+Sat Mar 28 13:35:52 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   76C    P8             13W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Inside container on  slurm-static-1-42  at  Sat Mar 28 13:35:52 UTC 2026
+Config: inf_gpu_batch16  batch_size=16  device=cuda
+Warming up GPU...
+
+=== Inference: inf_gpu_batch16 ===
+Batch 0: 16 samples, GPU=169.0 MB
+Batch 1: 16 samples, GPU=169.0 MB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us        1.879s       139.81%        1.879s     939.415ms             2  
+                     aten::_efficient_attention_forward         0.42%       8.262ms         0.99%      19.694ms      45.589us     691.618ms        51.47%     691.618ms       1.601ms           432  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     691.618ms        51.47%     691.618ms       1.601ms           432  
+                                            aten::addmm         2.79%      55.369ms         6.37%     126.541ms      81.534us     382.187ms        28.44%     392.777ms     253.078us          1552  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us     300.126ms        22.33%     300.126ms       2.309ms           130  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us     118.379ms         8.81%     118.379ms       7.399ms            16  
+                                               aten::mm         0.13%       2.590ms        13.02%     258.732ms     886.068us      87.342ms         6.50%      87.945ms     301.181us           292  
+                                            aten::copy_         0.36%       7.195ms        13.57%     269.755ms     307.939us      53.295ms         3.97%      53.299ms      60.844us           876  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      48.837ms         3.63%      48.837ms     325.583us           150  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      30.366ms         2.26%      30.366ms     690.139us            44  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.988s
+Self CUDA time total: 1.344s
+
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_2_inf_gpu_batch16.json
+Batch 2: 16 samples, GPU=169.0 MB
+Batch 3: 16 samples, GPU=169.0 MB
+Batch 4: 16 samples, GPU=169.0 MB
+Batch 5: 16 samples, GPU=169.0 MB
+Batch 6: 16 samples, GPU=169.0 MB
+Batch 7: 16 samples, GPU=169.0 MB
+Batch 8: 16 samples, GPU=169.0 MB
+Batch 9: 16 samples, GPU=169.0 MB
+Batch 10: 16 samples, GPU=169.0 MB
+Batch 11: 16 samples, GPU=169.0 MB
+Batch 12: 16 samples, GPU=169.0 MB
+Batch 13: 16 samples, GPU=169.0 MB
+Batch 14: 16 samples, GPU=169.0 MB
+Batch 15: 16 samples, GPU=169.0 MB
+
+Done. config=inf_gpu_batch16  time=36.904s  samples=256
+Throughput: 6.94 samples/s
+Device: cuda
+CPU RSS: start=1.45 GiB end=2.05 GiB peak~=2.05 GiB
+GPU Mem: start=154.31 MiB end=168.97 MiB peak~=608.03 MiB
+Resumen del profiling guardado en: /home/javierpolog/whisper_tiny/results/summary_time_inf_gpu_batch16.csv
+Evolucion memoria guardada en: /home/javierpolog/whisper_tiny/results/memory_inf_gpu_batch16.csv
+
+--- CUDA Profiling summary ---
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us        1.879s       139.81%        1.879s     939.415ms             2  
+                                          ProfilerStep*        17.18%     341.418ms       100.00%        1.988s     993.802ms       0.000us         0.00%        1.363s     681.505ms             2  
+                     aten::scaled_dot_product_attention         0.27%       5.404ms         1.88%      37.390ms      86.550us       0.000us         0.00%     691.618ms       1.601ms           432  
+          aten::_scaled_dot_product_efficient_attention         0.29%       5.863ms         1.61%      31.986ms      74.041us       0.000us         0.00%     691.618ms       1.601ms           432  
+                     aten::_efficient_attention_forward         0.42%       8.262ms         0.99%      19.694ms      45.589us     691.618ms        51.47%     691.618ms       1.601ms           432  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     691.618ms        51.47%     691.618ms       1.601ms           432  
+                                           aten::linear         0.89%      17.750ms        21.66%     430.550ms     233.487us       0.000us         0.00%     480.722ms     260.695us          1844  
+                                            aten::addmm         2.79%      55.369ms         6.37%     126.541ms      81.534us     382.187ms        28.44%     392.777ms     253.078us          1552  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us     300.126ms        22.33%     300.126ms       2.309ms           130  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us     118.379ms         8.81%     118.379ms       7.399ms            16  
+                                           aten::matmul         0.16%       3.214ms        13.27%     263.765ms     903.304us       0.000us         0.00%      87.945ms     301.181us           292  
+                                               aten::mm         0.13%       2.590ms        13.02%     258.732ms     886.068us      87.342ms         6.50%      87.945ms     301.181us           292  
+                                            aten::copy_         0.36%       7.195ms        13.57%     269.755ms     307.939us      53.295ms         3.97%      53.299ms      60.844us           876  
+                                            aten::clone         0.08%       1.573ms         0.93%      18.565ms      70.323us       0.000us         0.00%      49.988ms     189.350us           264  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      48.837ms         3.63%      48.837ms     325.583us           150  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.988s
+Self CUDA time total: 1.344s
+

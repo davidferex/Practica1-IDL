@@ -1,0 +1,108 @@
+Launching inference: whisper-tiny-inf_distributed_fp16.py  NUM_PROCESSES=2  DEVICE_MAP=auto
+Sat Mar 28 13:46:27 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   70C    P8             18W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |
+| N/A   70C    P8             15W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Inside container on  slurm-static-1-53  at  Sat Mar 28 13:46:28 UTC 2026
+My guessed rank = 0
+My guessed rank = 1
+[Process 0] device=cuda:0  num_processes=2  mixed_precision=fp16
+[Process 1] device=cuda:1  num_processes=2  mixed_precision=fp16
+Warming up...
+=== Inference: inf_distributed_fp16  (num_processes=2) ===
+Batch 0: local=16  global=32  GPU0=310.1 MB
+Batch 1: local=16  global=32  GPU0=310.1 MB
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us        1.425s       151.59%        1.425s     712.530ms             2  
+                     aten::_efficient_attention_forward         0.49%       8.461ms         1.14%      19.837ms      45.920us     290.760ms        30.93%     290.760ms     673.055us           432  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     203.669ms        21.66%     203.669ms      25.459ms             8  
+                                     record_param_comms         0.01%     257.729us         0.02%     396.824us      99.206us     194.983ms        20.74%     194.983ms      48.746ms             4  
+ncclDevKernel_AllGather_RING_LL(ncclDevComm*, unsign...         0.00%       0.000us         0.00%       0.000us       0.000us     194.983ms        20.74%     194.983ms      97.492ms             2  
+                                  nccl:_all_gather_base         0.00%       0.000us         0.00%       0.000us       0.000us     194.983ms        20.74%     194.983ms      97.492ms             2  
+                                            aten::addmm         4.34%      75.259ms         7.30%     126.597ms      81.570us     191.521ms        20.37%     198.121ms     127.655us          1552  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us     112.230ms        11.94%     112.230ms       2.806ms            40  
+                                            aten::copy_         2.00%      34.707ms        11.17%     193.522ms      36.011us     104.320ms        11.10%     105.456ms      19.623us          5374  
+fmha_cutlassF_f16_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us      87.091ms         9.26%      87.091ms     205.404us           424  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.733s
+Self CUDA time total: 940.091ms
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us        1.726s       213.45%        1.726s     863.037ms             2  
+                     aten::_efficient_attention_forward         0.47%       8.615ms         1.11%      20.560ms      47.592us     328.696ms        40.65%     328.696ms     760.871us           432  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     241.419ms        29.85%     241.419ms      30.177ms             8  
+                                            aten::addmm         4.33%      80.052ms         6.11%     112.853ms      72.715us     211.127ms        26.11%     221.552ms     142.752us          1552  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us     126.823ms        15.68%     126.823ms       3.171ms            40  
+                                            aten::copy_         2.48%      45.760ms        10.06%     185.954ms      34.208us     105.832ms        13.09%     105.835ms      19.469us          5436  
+fmha_cutlassF_f16_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us      87.277ms        10.79%      87.277ms     205.842us           424  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us      59.039ms         7.30%      59.039ms       7.380ms             8  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      52.982ms         6.55%      52.982ms      11.842us          4474  
+                                               aten::mm         0.73%      13.522ms         0.90%      16.725ms      57.277us      41.055ms         5.08%      42.041ms     143.975us           292  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.848s
+Self CUDA time total: 808.655ms
+
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_2_inf_distributed_fp16_rank1.json
+Trace guardada en: /home/javierpolog/whisper_tiny/results/trace_2_inf_distributed_fp16_rank0.json
+Batch 2: local=16  global=32  GPU0=310.1 MB
+Batch 3: local=16  global=32  GPU0=310.1 MB
+Batch 4: local=16  global=32  GPU0=310.1 MB
+Batch 5: local=16  global=32  GPU0=310.1 MB
+Batch 6: local=16  global=32  GPU0=310.1 MB
+Batch 7: local=16  global=32  GPU0=310.1 MB
+
+Done. config=inf_distributed_fp16  num_processes=2  time=37.418s  global_samples=256
+Throughput: 6.84 samples/s (wall-clock, 2 GPUs)
+CPU RSS [main]: start=1.91 GiB end=2.71 GiB peak~=2.71 GiB
+GPU 0 Mem: allocated=310.14 MiB  reserved=988.00 MiB
+GPU 1 Mem: allocated=0 B  reserved=0 B
+Resumen del profiling guardado en: /home/javierpolog/whisper_tiny/results/summary_time_inf_distributed_fp16.csv
+Evolucion memoria guardada en: /home/javierpolog/whisper_tiny/results/memory_inf_distributed_fp16.csv
+
+--- CUDA Profiling summary ---
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us        1.726s       213.45%        1.726s     863.037ms             2  
+                                          ProfilerStep*        25.94%     479.552ms       100.00%        1.848s     924.154ms       0.000us         0.00%     832.999ms     416.499ms             2  
+                                           aten::linear         2.11%      38.928ms        28.12%     519.786ms     142.798us       0.000us         0.00%     383.772ms     105.432us          3640  
+                     aten::scaled_dot_product_attention         0.37%       6.824ms         2.14%      39.624ms      91.721us       0.000us         0.00%     328.696ms     760.871us           432  
+          aten::_scaled_dot_product_efficient_attention         0.31%       5.805ms         1.77%      32.800ms      75.925us       0.000us         0.00%     328.696ms     760.871us           432  
+                     aten::_efficient_attention_forward         0.47%       8.615ms         1.11%      20.560ms      47.592us     328.696ms        40.65%     328.696ms     760.871us           432  
+fmha_cutlassF_f32_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us     241.419ms        29.85%     241.419ms      30.177ms             8  
+                                            aten::addmm         4.33%      80.052ms         6.11%     112.853ms      72.715us     211.127ms        26.11%     221.552ms     142.752us          1552  
+                                  volta_sgemm_128x64_tn         0.00%       0.000us         0.00%       0.000us       0.000us     126.823ms        15.68%     126.823ms       3.171ms            40  
+                                            aten::copy_         2.48%      45.760ms        10.06%     185.954ms      34.208us     105.832ms        13.09%     105.835ms      19.469us          5436  
+fmha_cutlassF_f16_aligned_64x64_rf_sm75(PyTorchMemEf...         0.00%       0.000us         0.00%       0.000us       0.000us      87.277ms        10.79%      87.277ms     205.842us           424  
+                                 volta_sgemm_128x128_tn         0.00%       0.000us         0.00%       0.000us       0.000us      59.039ms         7.30%      59.039ms       7.380ms             8  
+                                               aten::to         0.51%       9.421ms        13.42%     248.133ms      48.730us       0.000us         0.00%      56.862ms      11.167us          5092  
+                                         aten::_to_copy         1.64%      30.273ms        12.91%     238.711ms      50.107us       0.000us         0.00%      56.862ms      11.936us          4764  
+                                           aten::conv1d         0.01%     184.220us         4.85%      89.625ms       7.469ms       0.000us         0.00%      53.873ms       4.489ms            12  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.848s
+Self CUDA time total: 808.655ms
+
