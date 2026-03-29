@@ -1,5 +1,0 @@
-- ¿Cuántas GPUs se han usado? Añadir estudio de escalabilidad. ¿Alguna GPU se usa menos que otra?
-- La exposición en Power Point no debe ser robótica, que no parezca que estamos leyendo texto, que no parezca que estamos haciendo un bombardeo de información.
-- Hacer round-robin no vale. Cada uno expone una parte con sentido, no cambiar de persona aleatoriamente.
-- No poner números muy pequeños o imágenes con texto que no se lea por ser muy pequeño.
-- Huecos en las trazas. ¿Por qué?
